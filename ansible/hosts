@@ -1,0 +1,14 @@
+
+##if your host needs a .pem file, you must add this line to ansible/hosts file
+
+[webserver1:vars]
+##ansible_ssh_private_key_file = casefile/case.pem
+
+
+[webserver1]
+## alpha.example.org
+## beta.example.org
+## 192.168.1.100
+## 192.168.1.110gamma.example.com
+## IP address you want
+## 192.168.[0:255].[0:255]
