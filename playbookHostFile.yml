@@ -1,0 +1,13 @@
+---
+
+- hosts: webserver1
+  tasks:
+  - name: update host file
+    become: yes
+    become_user: root
+    lineinfile:
+      path: "/etc/hosts"
+      line: "{{ hostvars[inventory_hostname]['ansible_env'].SSH_CONNECTION.split(' ')[2]}}\t{{ hostvars[inventory_hostname]['ansible_hostname']}}"
+      state: present
+      backup: yes
+    with_items: "{{ groups['webserver1'] }}"
